@@ -13,14 +13,12 @@ protocol BusStopViewControllerProtocol: AnyObject {
     
     func updateCells()
     func showError(with: Error?, orSomeErrorText: String?)
-    func showActivityIndicator(isActive: Bool)
 }
 
 final class BusStopViewController: UIViewController {
     
     var presenter: BusStopPresenterProtocol!
     lazy var tableView: UITableView = makeTableView()
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,12 +38,8 @@ final class BusStopViewController: UIViewController {
     }
 }
 
-//MARK: - Extension
+//MARK: - BusStopViewControllerProtocol
 extension BusStopViewController: BusStopViewControllerProtocol {
-
-    func showActivityIndicator(isActive: Bool) {
-        
-    }
     
     func showError(with error: Error?, orSomeErrorText: String?) {
         let errorNetAlert: UIAlertController!

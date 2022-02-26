@@ -17,11 +17,6 @@ final class BusStopTableViewCell: UITableViewCell {
     @IBOutlet weak var busStopName: UILabel!
     @IBOutlet weak var busStopType: UILabel!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-    
 }
 
 extension BusStopTableViewCell: BusStopCellProtocol {

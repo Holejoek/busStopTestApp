@@ -49,7 +49,7 @@ final class BusStopPresenter: BusStopPresenterProtocol {
                 strongSelf.busStopList = list.data
                 strongSelf.view.updateCells()
             case .failure(let error):
-                print(error)
+                strongSelf.view.showError(with: error, orSomeErrorText: nil)
             }
         }
     }

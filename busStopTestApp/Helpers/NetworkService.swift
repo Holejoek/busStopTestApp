@@ -19,6 +19,21 @@ class NetworkService: NetworkServiceProtocol {
     
     func getBusStopDescription(busStopId: String, completion: @escaping (Result<BusStopDescriptionModel, Error>) -> Void) {
         let stringURL = stringAPIPath + "/\(busStopId)"
+        guard let url = URL(string: stringURL) else { return }
+        
+        URLSession.shared.dataTask(with: url) { data, _, error in
+            
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            do {
+                let obj = try JSONDecoder().decode(BusStopDescriptionModel.self, from: data!)
+                completion(.success((obj)))
+            } catch {
+                completion(.failure(error))
+            }
+        }.resume()
     }
     
     func getBusStops(completion: @escaping (Result<BusStopList, Error>) -> Void) {

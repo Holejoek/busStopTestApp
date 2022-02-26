@@ -62,7 +62,6 @@ struct BusStopDescriptionModel: Codable {
     let routePath: [RouteModel]
     let color, routeNumber: String
     let isFavorite: Bool
-    let shareURL: String
     let lat, lon: Double
     let cityShuttle, electrobus: Bool
     let transportTypes: [String]
@@ -71,14 +70,13 @@ struct BusStopDescriptionModel: Codable {
 
 // MARK: - RoutePath
 struct RouteModel: Codable {
-    let id, routePathID, type, number: String
+    let id, type, number: String
     let timeArrivalSecond: [Int]
     let timeArrival: [String]
     let lastStopName: String
     let isFifa, weight, byTelemetry: Int
     let color, fontColor: String
     let cityShuttle, electrobus: Bool
-    let tmIDS: [Int]
     let byTelemetryArray: [Int]
     let sberShuttle, isFavorite: Bool
 }

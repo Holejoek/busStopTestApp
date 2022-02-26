@@ -28,8 +28,8 @@ class AppCoordinator: Coordinator {
     }
     
     func setupWindow() {
-        self.window.rootViewController = navigationController
-        self.window.makeKeyAndVisible()
+        window.rootViewController = navigationController
+        window.makeKeyAndVisible()
     }
     
     func setupStarterCoordinator() {
