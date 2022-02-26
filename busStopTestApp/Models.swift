@@ -9,18 +9,39 @@ import Foundation
 
 
 // MARK: - BusStopMaimInfo
-struct BusStopMaimInfoModel: Codable {
+struct BusStopList: Codable {
+    let data: [BusStopMainInfoModel]
+}
+
+struct BusStopMainInfoModel: Codable {
     let id: String
     let lat, lon: Double
     let name: String
     let type: TypeElement
     let routeNumber, color, routeName, subwayID: String?
-    let shareURL: String
     let wifi, usb: Bool
     let transportTypes: [TypeElement]
     let isFavorite: Bool
     let mapIcon: String?
     let cityShuttle, electrobus: Bool
+    
+    var russianLgType: String {
+        switch type {
+        case .bus:
+            return "Автобус"
+        case .mcd:
+            return "МЦК"
+        case .publicTransport:
+            return "Общественный транспорт"
+        case .subwayHall:
+            return "Метро"
+        case .train:
+            return "Автобус"
+        case .tram:
+            return "Тролейбус"
+        }
+    }
+    
 }
 
 enum TypeElement: String, Codable {

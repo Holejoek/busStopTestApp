@@ -6,74 +6,48 @@
 //
 
 import Foundation
+import UIKit
 
-protocol BusStopViewControllerProtocol {
-    var presenter: ArticlePresenterProtocol! { get }
+protocol BusStopViewControllerProtocol: AnyObject {
+    var presenter: BusStopPresenterProtocol! { get set }
     
     func updateCells()
-    func showError(with: Error)
+    func showError(with: Error?, orSomeErrorText: String?)
     func showActivityIndicator(isActive: Bool)
 }
 
-class BusStopViewController: UIViewController, BusStopViewControllerProtocol {
+final class BusStopViewController: UIViewController {
     
-    var viewModel: SourcesViewModelProtocol!
-    lazy var collectionView: UICollectionView = makeCollectionView()
-    var sourceNames = [String]()
-    var sourceCategories = [String]()
-    // Animations
-    // Свойства для анимации перехода
-    var selectedIndexOfCell: IndexPath?
-    var selectedCell: UIView?
+    var presenter: BusStopPresenterProtocol!
+    lazy var tableView: UITableView = makeTableView()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureViewController()
-        makeDataBinding()
-        collectionView.reloadData()
-        viewModel.getSources()
-        //Animation
-        self.navigationController?.delegate = self
+        navigationItem.title = "Выберите остановку"
+        view.backgroundColor = .systemBackground
+        presenter.notifyThatViewDidLoad()
     }
     
-    private func configureViewController() {
-        navigationItem.title = "Выберите источник новостей"
-        navigationController?.navigationBar.titleTextAttributes = [ NSAttributedString.Key.font: UIFont(name: "Baskerville", size: 20) ?? UIFont.systemFont(ofSize: 20)]
-        view.createGradient(firstColor: .startFirstMainBack, secondColor: .startSecondMainBack, startPoint: CGPoint(x: 0, y: 0), endPoint: CGPoint(x: 0, y: 1), isAnimated: true, finalGradien: [.firstMainBack, .secondMainBack])
-    }
-    
-    private func makeCollectionView() -> UICollectionView{
-        let layer = UICollectionViewFlowLayout()
-        layer.scrollDirection = .vertical
-        let collectionView = UICollectionView(frame: view.frame, collectionViewLayout: layer)
-        collectionView.dataSource = self
-        collectionView.delegate = self
-        collectionView.showsVerticalScrollIndicator = false
-        collectionView.register(UINib(nibName: "SourcesCell", bundle: nil), forCellWithReuseIdentifier: "SourceCell")
-        // constaints
-        let safeAreaInsets = UIApplication.shared.windows[0].safeAreaInsets.top + (navigationController?.navigationBar.frame.height ?? 0)  // Необходимо найти альтернативу
-        collectionView.frame.origin.y = safeAreaInsets
-        collectionView.frame.size.height -= safeAreaInsets
-        collectionView.backgroundColor = .clear
-        view.addSubview(collectionView)
-        return collectionView
-    }
-    
-    private func makeDataBinding() {
-        viewModel.sourceNames.bind { [weak self] names in
-            guard let strongSelf = self else { return }
-            strongSelf.sourceNames = names
-        }
-        viewModel.sourceCategories.bind { [weak self] categories in
-            guard let strongSelf = self else { return }
-            strongSelf.sourceCategories = categories
-        }
+    private func makeTableView() -> UITableView {
+        let tableView = UITableView(frame: view.frame, style: .plain)
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.register(UINib(nibName: "BusStopTableViewCell", bundle: nil), forCellReuseIdentifier: BusStopTableViewCell.identifier)
+        tableView.frame = view.frame
+        view.addSubview(tableView)
+        return tableView
     }
 }
 
-//MARK: - Extension Output
-extension SourcesViewController: SourcesViewProtocol {
-    func showError(error: Error?, orSomeErrorText: String?) {
+//MARK: - Extension
+extension BusStopViewController: BusStopViewControllerProtocol {
+
+    func showActivityIndicator(isActive: Bool) {
+        
+    }
+    
+    func showError(with error: Error?, orSomeErrorText: String?) {
         let errorNetAlert: UIAlertController!
         if error != nil {
             let alert = UIAlertController(title: "Ошибка", message: error?.localizedDescription, preferredStyle: .alert)
@@ -86,8 +60,36 @@ extension SourcesViewController: SourcesViewProtocol {
         errorNetAlert.addAction(errorNetAction)
         present(errorNetAlert, animated: true, completion: nil)
     }
-    func updateData() {
-        collectionView.reloadData()
+    
+    func updateCells() {
+        DispatchQueue.main.async { [weak self] in
+            self?.tableView.reloadData()
+        }
     }
 }
 
+//MARK: - UITableViewDelegate, UITableViewDataSource
+
+extension BusStopViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        presenter.getNumberOfRows()
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+       let cell = tableView.dequeueReusableCell(withIdentifier: BusStopTableViewCell.identifier, for: indexPath) as! BusStopTableViewCell
+        
+        let model = presenter.getModelForCellAt(indexPath)
+        cell.configure(with: model)
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        presenter.getHeightForRowAt(indexPath)
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        presenter.didSelectedRowAt(indexPath: indexPath)
+    }
+}
+ 

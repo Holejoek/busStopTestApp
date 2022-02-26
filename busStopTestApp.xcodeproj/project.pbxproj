@@ -8,22 +8,29 @@
 
 /* Begin PBXBuildFile section */
 		350DE45427C807F200759319 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350DE45327C807F200759319 /* AppDelegate.swift */; };
-		350DE45627C807F200759319 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350DE45527C807F200759319 /* SceneDelegate.swift */; };
-		350DE45827C807F200759319 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350DE45727C807F200759319 /* ViewController.swift */; };
 		350DE45D27C807F500759319 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 350DE45C27C807F500759319 /* Assets.xcassets */; };
 		350DE46027C807F500759319 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 350DE45E27C807F500759319 /* LaunchScreen.storyboard */; };
 		350DE46927C81F8000759319 /* ModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350DE46827C81F8000759319 /* ModuleBuilder.swift */; };
 		350DE46B27C8214800759319 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350DE46A27C8214800759319 /* Models.swift */; };
 		350DE46D27C826F100759319 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350DE46C27C826F100759319 /* NetworkService.swift */; };
 		350DE47027C8289200759319 /* BusStopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350DE46F27C8289200759319 /* BusStopViewController.swift */; };
-		350DE47227C8296600759319 /* BusStopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350DE47127C8296600759319 /* BusStopViewModel.swift */; };
+		350DE47227C8296600759319 /* BusStopPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350DE47127C8296600759319 /* BusStopPresenter.swift */; };
+		350DE48027C8C11500759319 /* BusStopTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350DE47E27C8C11500759319 /* BusStopTableViewCell.swift */; };
+		350DE48127C8C11500759319 /* BusStopTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 350DE47F27C8C11500759319 /* BusStopTableViewCell.xib */; };
+		350DE48527C8EA6100759319 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350DE48427C8EA6100759319 /* MapViewController.swift */; };
+		350DE48E27C900D500759319 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350DE48D27C900D500759319 /* AppCoordinator.swift */; };
+		350DE49527C906F200759319 /* FeatureCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350DE49427C906F200759319 /* FeatureCoordinator.swift */; };
+		350DE49727C9072C00759319 /* FeatureSceneFatory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350DE49627C9072C00759319 /* FeatureSceneFatory.swift */; };
+		350DE49927C972F000759319 /* MapViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350DE49827C972F000759319 /* MapViewPresenter.swift */; };
+		350DE4D327CA803C00759319 /* BusStopDescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350DE4CE27CA803C00759319 /* BusStopDescriptionCell.swift */; };
+		350DE4D427CA803C00759319 /* BusStopDescriptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 350DE4CF27CA803C00759319 /* BusStopDescriptionCell.xib */; };
+		350DE4D527CA803C00759319 /* TimeArrivalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350DE4D127CA803C00759319 /* TimeArrivalCell.swift */; };
+		350DE4D627CA803C00759319 /* TimeArrivalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 350DE4D227CA803C00759319 /* TimeArrivalCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		350DE45027C807F200759319 /* busStopTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = busStopTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		350DE45327C807F200759319 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		350DE45527C807F200759319 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		350DE45727C807F200759319 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		350DE45C27C807F500759319 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		350DE45F27C807F500759319 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		350DE46127C807F500759319 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -31,7 +38,18 @@
 		350DE46A27C8214800759319 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		350DE46C27C826F100759319 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		350DE46F27C8289200759319 /* BusStopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStopViewController.swift; sourceTree = "<group>"; };
-		350DE47127C8296600759319 /* BusStopViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStopViewModel.swift; sourceTree = "<group>"; };
+		350DE47127C8296600759319 /* BusStopPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStopPresenter.swift; sourceTree = "<group>"; };
+		350DE47E27C8C11500759319 /* BusStopTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStopTableViewCell.swift; sourceTree = "<group>"; };
+		350DE47F27C8C11500759319 /* BusStopTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BusStopTableViewCell.xib; sourceTree = "<group>"; };
+		350DE48427C8EA6100759319 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		350DE48D27C900D500759319 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		350DE49427C906F200759319 /* FeatureCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureCoordinator.swift; sourceTree = "<group>"; };
+		350DE49627C9072C00759319 /* FeatureSceneFatory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureSceneFatory.swift; sourceTree = "<group>"; };
+		350DE49827C972F000759319 /* MapViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewPresenter.swift; sourceTree = "<group>"; };
+		350DE4CE27CA803C00759319 /* BusStopDescriptionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusStopDescriptionCell.swift; sourceTree = "<group>"; };
+		350DE4CF27CA803C00759319 /* BusStopDescriptionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BusStopDescriptionCell.xib; sourceTree = "<group>"; };
+		350DE4D127CA803C00759319 /* TimeArrivalCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeArrivalCell.swift; sourceTree = "<group>"; };
+		350DE4D227CA803C00759319 /* TimeArrivalCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimeArrivalCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,11 +83,11 @@
 			isa = PBXGroup;
 			children = (
 				350DE45327C807F200759319 /* AppDelegate.swift */,
-				350DE45527C807F200759319 /* SceneDelegate.swift */,
 				350DE46727C81F6800759319 /* Helpers */,
-				350DE46A27C8214800759319 /* Models.swift */,
+				350DE48C27C900AC00759319 /* Coordinator */,
 				350DE46E27C8285E00759319 /* BusStopList */,
-				350DE45727C807F200759319 /* ViewController.swift */,
+				350DE48327C8E9F200759319 /* BusStopDescription */,
+				350DE46A27C8214800759319 /* Models.swift */,
 				350DE45C27C807F500759319 /* Assets.xcassets */,
 				350DE45E27C807F500759319 /* LaunchScreen.storyboard */,
 				350DE46127C807F500759319 /* Info.plist */,
@@ -89,10 +107,69 @@
 		350DE46E27C8285E00759319 /* BusStopList */ = {
 			isa = PBXGroup;
 			children = (
+				350DE47927C8AB9600759319 /* Cells */,
 				350DE46F27C8289200759319 /* BusStopViewController.swift */,
-				350DE47127C8296600759319 /* BusStopViewModel.swift */,
+				350DE47127C8296600759319 /* BusStopPresenter.swift */,
 			);
 			path = BusStopList;
+			sourceTree = "<group>";
+		};
+		350DE47927C8AB9600759319 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				350DE47E27C8C11500759319 /* BusStopTableViewCell.swift */,
+				350DE47F27C8C11500759319 /* BusStopTableViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		350DE48327C8E9F200759319 /* BusStopDescription */ = {
+			isa = PBXGroup;
+			children = (
+				350DE4D027CA803C00759319 /* ArrivalCollectionCell */,
+				350DE4CD27CA803C00759319 /* BusStopDescription */,
+				350DE48427C8EA6100759319 /* MapViewController.swift */,
+				350DE49827C972F000759319 /* MapViewPresenter.swift */,
+			);
+			path = BusStopDescription;
+			sourceTree = "<group>";
+		};
+		350DE48C27C900AC00759319 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				350DE48D27C900D500759319 /* AppCoordinator.swift */,
+				350DE49327C9069500759319 /* FeatureCoordinator */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		350DE49327C9069500759319 /* FeatureCoordinator */ = {
+			isa = PBXGroup;
+			children = (
+				350DE49427C906F200759319 /* FeatureCoordinator.swift */,
+				350DE49627C9072C00759319 /* FeatureSceneFatory.swift */,
+			);
+			path = FeatureCoordinator;
+			sourceTree = "<group>";
+		};
+		350DE4CD27CA803C00759319 /* BusStopDescription */ = {
+			isa = PBXGroup;
+			children = (
+				350DE4CE27CA803C00759319 /* BusStopDescriptionCell.swift */,
+				350DE4CF27CA803C00759319 /* BusStopDescriptionCell.xib */,
+			);
+			name = BusStopDescription;
+			path = Cells/BusStopDescription;
+			sourceTree = "<group>";
+		};
+		350DE4D027CA803C00759319 /* ArrivalCollectionCell */ = {
+			isa = PBXGroup;
+			children = (
+				350DE4D127CA803C00759319 /* TimeArrivalCell.swift */,
+				350DE4D227CA803C00759319 /* TimeArrivalCell.xib */,
+			);
+			name = ArrivalCollectionCell;
+			path = Cells/ArrivalCollectionCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,8 +230,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				350DE48127C8C11500759319 /* BusStopTableViewCell.xib in Resources */,
 				350DE46027C807F500759319 /* LaunchScreen.storyboard in Resources */,
 				350DE45D27C807F500759319 /* Assets.xcassets in Resources */,
+				350DE4D627CA803C00759319 /* TimeArrivalCell.xib in Resources */,
+				350DE4D427CA803C00759319 /* BusStopDescriptionCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -165,13 +245,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				350DE45827C807F200759319 /* ViewController.swift in Sources */,
-				350DE47227C8296600759319 /* BusStopViewModel.swift in Sources */,
+				350DE47227C8296600759319 /* BusStopPresenter.swift in Sources */,
+				350DE49727C9072C00759319 /* FeatureSceneFatory.swift in Sources */,
 				350DE47027C8289200759319 /* BusStopViewController.swift in Sources */,
+				350DE48E27C900D500759319 /* AppCoordinator.swift in Sources */,
 				350DE45427C807F200759319 /* AppDelegate.swift in Sources */,
-				350DE45627C807F200759319 /* SceneDelegate.swift in Sources */,
+				350DE48027C8C11500759319 /* BusStopTableViewCell.swift in Sources */,
+				350DE49927C972F000759319 /* MapViewPresenter.swift in Sources */,
+				350DE48527C8EA6100759319 /* MapViewController.swift in Sources */,
+				350DE4D327CA803C00759319 /* BusStopDescriptionCell.swift in Sources */,
+				350DE49527C906F200759319 /* FeatureCoordinator.swift in Sources */,
 				350DE46927C81F8000759319 /* ModuleBuilder.swift in Sources */,
 				350DE46D27C826F100759319 /* NetworkService.swift in Sources */,
+				350DE4D527CA803C00759319 /* TimeArrivalCell.swift in Sources */,
 				350DE46B27C8214800759319 /* Models.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -316,9 +402,9 @@
 				DEVELOPMENT_TEAM = Y7D9L7KUJ9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = busStopTestApp/Info.plist;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = NO;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -344,9 +430,9 @@
 				DEVELOPMENT_TEAM = Y7D9L7KUJ9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = busStopTestApp/Info.plist;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = NO;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
